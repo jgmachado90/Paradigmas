@@ -1,0 +1,50 @@
+-- 1
+somaQuad :: Int -> Int -> Int
+somaQuad x y = (x^2) + (y^2)
+
+--2
+hasEqHeads :: [Int] -> [Int] -> Bool
+hasEqHeads list1 list2 = if head list1 == head list2 then True else False
+
+--3
+whatsUpSr :: [String] -> [String]
+whatsUpSr list = map("Sr. "++) list
+
+--4
+filtereacoisatoda :: String -> Int
+filtereacoisatoda xisbacon = length(filter (== ' ') xisbacon)
+
+--5
+calculoAndreavainosmatar :: [Float] -> [Float]
+calculoAndreavainosmatar xisbacon = map((\n -> 3*n^2 + 2/n + 1))xisbacon
+
+--6
+pegarosnegativos :: [Int] -> [Int]
+pegarosnegativos  lista  = filter(<0)lista
+
+--7
+entreosnumeros :: [Int] ->  [Int]
+entreosnumeros lista = filter(\x-> x<=100 && x>=1)lista
+
+--8 
+listaidades :: [Int]-> [Int]
+listaidades lista =  filter(\x-> x<= 46 && x>= 0) lista
+
+--9
+testedopar :: Int -> Bool
+testedopar n = if mod n 2 == 0 then True else False
+numeropar :: [Int] -> [Int]
+numeropar lista = filter testedopar lista
+
+--10
+charFound :: Char -> String -> Bool
+charFound char string = char `elem` string
+
+
+--11
+--takeWhile (< 0) [1,2,3]
+--resultado == []
+
+--12
+terminacoma :: [String] -> [String]
+terminacoma lista = filter (\n-> 'a' == (last n) )lista
