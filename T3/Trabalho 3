@@ -82,7 +82,7 @@ retornatabela :: Int -> [(Int,Int)]
 retornatabela 0 = [(0, 0)]
 retornatabela num =funcao 1 num
 funcao :: Int -> Int -> [(Int, Int)]
-funcao a num = if(a <= num) then (a, a^2) : func(a + 1) num else []
+funcao a num = if(a <= num) then (a, a^2) : funcao(a + 1) num else []
 
 
 
