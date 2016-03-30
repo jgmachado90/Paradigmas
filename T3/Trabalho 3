@@ -1,0 +1,91 @@
+
+
+--EX 1
+
+listaeleva ::  [Int] -> [Int]
+listaeleva [] = []
+listaeleva lista = (head lista^2):listaeleva(tail lista)
+
+--EX 2
+
+listaSr :: [String] -> [String]
+listaSr [] = []
+listaSr lista = ("Sr." ++ head lista) : listaSr(tail lista)
+
+--EX3
+
+retornaespacos :: String -> Int
+retornaespacos  [] = 0
+retornaespacos string = if(head string == ' ') then 1+retornaespacos(tail string) else (retornaespacos(tail string))
+
+--EX4
+
+calculoco :: [Float] -> [Float]
+calculoco [] = []
+calculoco lista =  (3*head lista^2 + 2/head lista + 1) : calculoco(tail lista)
+
+--EX5
+
+numerosnegativos :: [Int] -> [Int]
+numerosnegativos [] = []
+numerosnegativos lista = if(head lista < 0 ) then (head lista):numerosnegativos(tail lista) else numerosnegativos(tail lista) 
+
+--EX6
+
+semVogais :: String -> String
+semVogais string = filter(\x -> x /= 'a' && x /= 'e' && x /= 'i' && x /= 'o' && x /= 'u') string
+
+--EX7
+
+semVogais2 :: String -> String
+semVogais2 [] = []
+semVogais2 string = if(head string /= 'a' || head string /= 'e' || head string /= 'i' || head string /= 'o' || head string /= 'u') then (head string):semVogais2(tail string) else semVogais2(tail string) 
+
+--EX8
+
+codifica :: String -> String
+codifica string = map(\x -> if x /= ' ' then '-'; else x) string
+
+--EX9
+
+codifica2 :: String-> String
+codifica2 [] = []
+codifica2 string = if (head string /= ' ') then ('-') : codifica(tail string) else codifica(tail string)
+
+--EX10
+
+charFound :: Char -> String -> Bool
+charFound _ "" = False
+charFound char string = if char == (head string) then True else charFound char (tail string)
+
+--EX11
+
+translate :: [(Float,Float)] ->[(Float,Float)]
+translate [] = []
+translate lista = (fst(head lista)+ 2, snd(head lista) +2):translate (tail lista) 
+
+--EX12
+
+prodVet :: [Float]->[Float]->[Float]
+prodVet _ [] = []
+prodVet [] _ = []
+prodVet listaa listab = (head listaa*head listab): prodVet (tail listaa) (tail listab)
+
+--EX13
+
+prodVet2 :: [Float]->[Float]->[Float]
+prodVet2 listaa listab = zipWith(*)listaa listab
+
+--EX14
+
+retornatabela :: Int -> [(Int,Int)]
+retornatabela 0 = [(0, 0)]
+retornatabela num =funcao 1 num
+funcao :: Int -> Int -> [(Int, Int)]
+funcao a num = if(a <= num) then (a, a^2) : func(a + 1) num else []
+
+
+
+
+
+
