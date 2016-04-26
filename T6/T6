@@ -1,0 +1,76 @@
+%1
+zeroInit(L) :- 
+L = [C | _ ],
+C = 0.
+
+%2
+has5(L) :- 
+L = [_,_,_,_,_].
+
+%3
+hasN(L,N) :- 
+length(L, Y), 
+Y =:= N.
+
+%4
+potN0(-1,[]).
+potN0(N,[H|T]):- 
+N >= 0,
+H is 2^N,
+Y is N-1, 
+potN0(Y,T).
+
+%5
+zipmult([],[],[]).
+zipmult( [HX|TX] , [HY|TY] , [HZ|TZ]):- 
+HZ is HX*HY,
+zipmult(TX,TY,TZ).
+
+%6
+potencias(0, []).
+potencias(A,L):- 
+ax(0,L,A).
+ax(_,[],0).
+ax(X,L,A):-
+HX is 2 ^ X,
+L=[HX|T],
+X2 is X + 1,
+B is A - 1,
+A > -1,
+ax(X2,T,B).
+
+%7
+
+positivos([],[]).
+positivos([H|T] , L ) :- 
+H < 0,
+positivos(T,L).
+positivos([H|T],[H|TY]) :-
+H >=0, 
+positivos(T,TY).
+
+%8
+mesmaPosicao(_,[],[]):- 
+false.
+mesmaPosicao(X,[H|_],[HX|_]):- 
+X == H,
+X == HX.
+mesmaPosicao(X,[H | T],[HX | TX]):-
+X \= H,
+X \= HX,
+mesmaPosicao(X,T,TX).
+
+%9
+comissao(0,_,[]).
+comissao(N,[H|T],[H|Comb]):-
+N>0,
+N1 is N-1,
+comissao(N1,T,Comb).
+comissao(N,[_|T],Comb):-
+N>0,
+comissao(N,T,Comb).
+
+
+ 
+
+
