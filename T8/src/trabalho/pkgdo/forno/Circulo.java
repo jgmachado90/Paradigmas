@@ -26,4 +26,8 @@ public class Circulo extends Forma{
         return area; 
     }   
     
+    public Ponto getPonto(){
+        return pontos[0];
+    }
+    
 }

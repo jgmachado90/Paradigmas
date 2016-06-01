@@ -21,7 +21,7 @@ public class Bolacha{
     public Bolacha(Ponto p){
         Random r = new Random();
         tipo = r.nextInt(3);
-         System.out.format(" %d ", tipo);
+        // System.out.format(" %d ", tipo);
         if (tipo == REDONDA){
             Circulo c = new Circulo(p, (r.nextInt(4)) + 1);
             f = (Forma) c;
@@ -38,6 +38,10 @@ public class Bolacha{
     
     public float getarea(){
         return f.getArea();
+    }
+    
+    public Ponto getPonto(){
+        return f.getPonto();
     }
     
     public int getTipo(){

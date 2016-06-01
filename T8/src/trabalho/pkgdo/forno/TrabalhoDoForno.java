@@ -17,7 +17,7 @@ public class TrabalhoDoForno {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        Ponto t = new Ponto();
         float x=0, y=0;
         float maior=0;
         
@@ -35,10 +35,14 @@ public class TrabalhoDoForno {
         for(int i=0;i<50;i++){
             if(b.get(i).getarea() > maior){
                 maior = b.get(i).getarea();
+                t = b.get(i).f.getPonto();
             }
         }
         
-       System.out.println("\n\nA area da maior bolacha e: = " + maior);     
+        
+       System.out.println("\n\nA area da maior bolacha e: = " + maior);
+       System.out.println("\n A posicao do ponto e: ");
+       t.showpoint();
         
     }
         
