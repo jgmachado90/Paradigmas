@@ -11,10 +11,11 @@ package trabalho.pkgdo.forno;
  */
 public class Ponto {
    private float x, y;
+  
    
    public Ponto (){
-       x = 0;
-       y = 0;
+        x = 0;
+        y = 0;
    }
    
    
