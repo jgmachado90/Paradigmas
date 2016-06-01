@@ -10,14 +10,15 @@ package trabalho.pkgdo.forno;
  * @author joao
  */
 public class Circulo extends Forma{
-    
+    protected int tipo;
     protected float raio;
     
-    public Circulo(Ponto p, float raio){
+    public Circulo(int tipo,Ponto p, float raio){
         pontos = new Ponto[1];
         p.movepoint(raio, raio);
         pontos[0] = p;
         this.raio = raio;
+        this.tipo = tipo;
     }
     
     @Override
@@ -26,8 +27,13 @@ public class Circulo extends Forma{
         return area; 
     }   
     
+    @Override
     public Ponto getPonto(){
         return pontos[0];
+    }
+    
+    public int getTipo(){
+        return tipo;
     }
     
 }

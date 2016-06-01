@@ -18,7 +18,7 @@ public class TrabalhoDoForno {
      */
     public static void main(String[] args) {
         Ponto t = new Ponto();
-        float x=0, y=0;
+        int tipo = 0;
         float maior=0;
         
         ArrayList<Bolacha> b = new ArrayList<>();
@@ -36,6 +36,7 @@ public class TrabalhoDoForno {
             if(b.get(i).getarea() > maior){
                 maior = b.get(i).getarea();
                 t = b.get(i).f.getPonto();
+                tipo = b.get(i).f.getTipo();
             }
         }
         
@@ -43,7 +44,18 @@ public class TrabalhoDoForno {
        System.out.println("\n\nA area da maior bolacha e: = " + maior);
        System.out.println("\n A posicao do ponto e: ");
        t.showpoint();
-        
+       
+       System.out.println("\nO formato da bolacha e: ");
+      
+       if(tipo == 0){
+           System.out.println("Circular");
+       }
+       if(tipo == 1){
+           System.out.println("Retangular");
+       }
+       if(tipo == 2){
+           System.out.println("Triangular");
+       }
     }
         
 }

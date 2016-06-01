@@ -14,4 +14,5 @@ public abstract class Forma {
     protected Ponto[] pontos;
     public abstract float getArea();
     public abstract Ponto getPonto();
+    public abstract int getTipo();
 }

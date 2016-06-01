@@ -10,12 +10,14 @@ package trabalho.pkgdo.forno;
  * @author joao
  */
 public class Triangulo extends Forma{
-    float b, h;
-    public Triangulo(Ponto p, float b, float h){
+    protected float b, h;
+    protected int tipo;
+    public Triangulo(int tipo,Ponto p, float b, float h){
         pontos = new Ponto[3];
         pontos[0] = p;
         this.b = b;
         this.h = h;
+        this.tipo = tipo;
         
     }
             
@@ -27,6 +29,10 @@ public class Triangulo extends Forma{
     
     public Ponto getPonto(){
         return pontos[0];
+    }
+    
+     public int getTipo(){
+        return tipo;
     }
     
 }

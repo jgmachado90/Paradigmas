@@ -10,15 +10,15 @@ package trabalho.pkgdo.forno;
  * @author joao
  */
 public class Retangulo extends Forma{
-    int w;
-    int h;
+    protected int w, h, tipo;
     
-    public Retangulo(Ponto p, int w, int h){
+    
+    public Retangulo(int tipo, Ponto p, int w, int h){
         pontos = new Ponto[4];
         pontos[0] = p;
         this.w = w;
         this.h = h;
-        
+        this.tipo = tipo;
         
     }
     
@@ -28,7 +28,13 @@ public class Retangulo extends Forma{
         return area;
     }
     
-     public Ponto getPonto(){
+    @Override
+    public Ponto getPonto(){
         return pontos[0];
     }
+    
+    public int getTipo(){
+        return tipo;
+    }
+    
 }

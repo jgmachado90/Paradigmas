@@ -23,15 +23,15 @@ public class Bolacha{
         tipo = r.nextInt(3);
         // System.out.format(" %d ", tipo);
         if (tipo == REDONDA){
-            Circulo c = new Circulo(p, (r.nextInt(4)) + 1);
+            Circulo c = new Circulo(tipo, p, (r.nextInt(4)) + 1);
             f = (Forma) c;
         }
         if(tipo == RETANGULAR){
-            Retangulo rt = new Retangulo(p, ((r.nextInt(5))+5) , ((r.nextInt(5))+5)); 
+            Retangulo rt = new Retangulo(tipo, p, ((r.nextInt(9))+1) , ((r.nextInt(9))+1)); 
             f = (Forma) rt;
         }
         if(tipo == TRIANGULAR){
-            Triangulo t = new Triangulo(p, ((r.nextInt(5))+5) , ((r.nextInt(5))+5) );
+            Triangulo t = new Triangulo(tipo, p, ((r.nextInt(9))+1) , ((r.nextInt(9))+1) );
             f = (Forma) t;
         }
     }
@@ -45,7 +45,7 @@ public class Bolacha{
     }
     
     public int getTipo(){
-        return tipo;
+        return f.getTipo();
     }
     
 }
