@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package trabface;
+package trab_face;
 
 /**
  *
  * @author joao
  */
-public class Trabface {
+public class Trab_Face {
 
     /**
      * @param args the command line arguments
