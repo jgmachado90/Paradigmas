@@ -41,21 +41,21 @@ public class TrabalhoDoForno {
         }
         
         
-       System.out.println("\n\nA area da maior bolacha e: = " + maior);
-       System.out.println("\n A posicao do ponto e: ");
-       t.showpoint();
+        System.out.println("\n\nA area da maior bolacha e: = " + maior);
+        System.out.println("\n A posicao do ponto e: ");
+        t.showpoint();
        
-       System.out.println("\nO formato da bolacha e: ");
+        System.out.println("\nO formato da bolacha e: ");
       
-       if(tipo == 0){
-           System.out.println("Circular");
-       }
-       if(tipo == 1){
-           System.out.println("Retangular");
-       }
-       if(tipo == 2){
-           System.out.println("Triangular");
-       }
+        if(tipo == 0){
+            System.out.println("Circular");
+        }
+        if(tipo == 1){
+            System.out.println("Retangular");
+        }
+        if(tipo == 2){
+            System.out.println("Triangular");
+        }
     }
         
 }
