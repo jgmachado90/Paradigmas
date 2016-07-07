@@ -8,6 +8,7 @@ package trab_face;
 import java.net.MalformedURLException;
 import com.restfb.*;
 import com.restfb.FacebookClient;
+import com.restfb.json.JsonObject;
 import javax.swing.ImageIcon;
 import com.restfb.types.User;
 import java.net.URL;
@@ -46,7 +47,12 @@ public class NewJFrame extends javax.swing.JFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable(){
+            public Class getColumnClass(int column){
+                return getValueAt(0, column).getClass();
+            }
+        }
+        ;
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -171,26 +177,31 @@ public class NewJFrame extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
-       FacebookClient FbClient;
-       String token = jTextField1.getText();
-       String nomeBusca = jTextField2.getText(); 
-       FbClient = new DefaultFacebookClient(token, Version.LATEST);
-       Connection<User> usuarios = FbClient.fetchConnection("search", 
+        FacebookClient FbClient;
+        String token = jTextField1.getText();
+        String nomeBusca = jTextField2.getText(); 
+        FbClient = new DefaultFacebookClient(token, Version.LATEST);
+        Connection<User> usuarios = FbClient.fetchConnection("search", 
                User.class, Parameter.with("q", nomeBusca), 
                Parameter.with("type", "user"), Parameter.with("limit", 300));
        // Agora nos vamos iterar sobre esta listinha marota!! Mas na realidade 
        // ela sente muita vergonha e se esconde sobre um nome falso de Connection
        // mas eh so dar uma getdata que a safada fica toda animada!!!
-       jTable1.removeAll();
-       DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-       int num = 1;
-       for (User usuario : usuarios.getData()){
+        jTable1.setRowHeight(50);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        while(model.getRowCount() > 0)
+            model.removeRow(0);
+        int num = 1;
+        for (User usuario : usuarios.getData()){
             String id = usuario.getId();
             String nome = usuario.getName();
             try {
-                ImageIcon foto = new ImageIcon(new URL("http://graph.facebook.com/" + id + "/picture?type=large"));
-                //System.out.println(usuario.getPicture().getUrl());
-                //ImageIcon foto = new ImageIcon(new URL(usuario.getPicture().getUrl()));
+                //ImageIcon foto = new ImageIcon(new URL("http://graph.facebook.com/" + id + "/picture?type=large"));
+                JsonObject request = FbClient.fetchObject(id+"/picture", 
+                        JsonObject.class, Parameter.with("redirect", "false"));
+                URL url = new URL(request.getJsonObject("data").getString("url")); 
+                System.out.println(url);
+                ImageIcon foto = new ImageIcon(url);
                 model.addRow(new Object[]{num, foto, nome, id});
             }
             catch (MalformedURLException e){
@@ -201,7 +212,7 @@ public class NewJFrame extends javax.swing.JFrame {
             }
             
             num++;
-       }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

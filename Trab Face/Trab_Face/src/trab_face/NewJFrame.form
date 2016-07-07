@@ -211,6 +211,9 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable(){&#xa;    public Class getColumnClass(int column){&#xa;        return getValueAt(0, column).getClass();&#xa;    }&#xa;}&#xa;"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>
